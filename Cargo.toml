@@ -1,20 +1,21 @@
 [package]
 name = "xiao-esp32c6-blinky"
-version = "0.1.0"
-authors = ["Mariusz Jurgielewicz <mordor@mail.com>"]
+version = "0.2.0"
+authors = ["Mariusz Jurgielewicz <mordor@mail.com>", "Patrik  Husfloen <redoz@redoz.com>"]
 edition = "2021"
 license = "MIT OR Apache-2.0"
 
 [dependencies]
-esp-backtrace = { version = "0.14.2", features = [
+esp-backtrace = { version = "0.17.0", features = [
     "esp32c6",
     "exception-handler",
     "panic-handler",
     "println",
 ] }
-esp-hal = { version = "0.21.0", features = [ "esp32c6" ] }
-esp-println = { version = "0.12.0", features = ["esp32c6", "log"] }
-log = { version = "0.4.22" }
+esp-hal = { version = "1.0.0-rc.0", features = ["esp32c6", "unstable"] }
+esp-println = { version = "0.15.0", features = ["esp32c6", "log-04"] }
+esp-bootloader-esp-idf = { version = "0.2.0", features = ["esp32c6"] }
+
 [profile.dev]
 # Rust debug is too slow.
 # For debug builds always builds with some optimization
