@@ -9,11 +9,11 @@
 
 use esp_backtrace as _;
 use esp_hal::{
-    main,
     delay::Delay,
+    gpio::OutputConfig,
     gpio::{Level, Output},
+    main,
     time::Duration,
-    gpio::OutputConfig
 };
 
 esp_bootloader_esp_idf::esp_app_desc!();
