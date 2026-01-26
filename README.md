@@ -1,7 +1,10 @@
 # xiao-esp32c6-blinky
-An example  Rust project that uses pin GPIO15 on a [Seeed Studio XIAO-ESP32-C6 board](https://www.seeedstudio.com/Seeed-Studio-XIAO-ESP32C6-p-5884.html) to blink a BUILTIN LED.
 
-Project was generated using esp-teamplate:
+Rust examples for the [Seeed Studio XIAO-ESP32-C6 board](https://www.seeedstudio.com/Seeed-Studio-XIAO-ESP32C6-p-5884.html) with Grove modules.
+
+## Project Setup
+
+Project was generated using esp-template:
 
 ```bash
 cargo generate -a https://github.com/esp-rs/esp-template
@@ -95,3 +98,95 @@ Flash size:        4MB
 Features:          WiFi 6, BT 5
 MAC address:       f0:f5:bd:2d:0c:88
 ```
+
+## Examples
+
+This project includes examples for Grove modules connected via the [Grove Base for XIAO](https://www.seeedstudio.com/Grove-Shield-for-Seeeduino-XIAO-p-4621.html).
+
+### Main Application
+
+The main application blinks the built-in LED on GPIO15.
+
+```bash
+cargo run --release
+```
+
+### Grove LED Example
+
+Demonstrates controlling a Grove LED module.
+
+**Hardware:**
+- Grove LED module connected to **D7** (GPIO17)
+
+**Run:**
+```bash
+cargo run --example grove_led
+```
+
+The LED blinks with 250ms ON, 1000ms OFF pattern.
+
+### Grove Button Example
+
+Demonstrates using a Grove Button to control a Grove LED.
+
+**Hardware:**
+- Grove Button connected to **D1** (GPIO1)
+- Grove LED connected to **D7** (GPIO17)
+
+**Run:**
+```bash
+cargo run --example grove_button
+```
+
+The LED turns ON when button is pressed, OFF when released.
+
+### Grove Rotary Potentiometer Example
+
+Demonstrates using a Grove Rotary Potentiometer to control LED blink rate via ADC.
+
+**Hardware:**
+- Grove Rotary Potentiometer connected to **A0** (GPIO0/ADC1_CH0)
+- Grove LED connected to **D7** (GPIO17)
+
+**Run:**
+```bash
+cargo run --example grove_potentiometer
+```
+
+Rotate the potentiometer to adjust the LED blink rate from 50ms to 1000ms per toggle. ADC values are printed to the serial console.
+
+### Grove Buzzer Example
+
+Demonstrates using a Grove Buzzer with PWM (analogWrite) to create beep patterns.
+
+**Hardware:**
+- Grove Buzzer connected to **A2** (GPIO2)
+
+**Run:**
+```bash
+cargo run --example grove_buzzer
+```
+
+The buzzer plays various patterns:
+- Three short beeps
+- Long beep
+- SOS pattern (··· --- ···)
+- Rapid beeps
+
+Uses PWM at 2kHz with 50% duty cycle, matching Arduino's `analogWrite(pin, 128)`.
+
+## Pin Mapping Reference
+
+| Grove Connector | XIAO ESP32-C6 Pin | Function |
+|-----------------|-------------------|----------|
+| A0 | GPIO0 | ADC1_CH0 |
+| A1 | GPIO1 | ADC1_CH1 |
+| A2 | GPIO2 | ADC1_CH2 / PWM |
+| D1 | GPIO1 | Digital I/O |
+| D7 | GPIO17 | Digital I/O |
+
+## Hardware Links
+
+- [XIAO ESP32-C6](https://www.seeedstudio.com/Seeed-Studio-XIAO-ESP32C6-p-5884.html)
+- [Grove Base for XIAO](https://www.seeedstudio.com/Grove-Shield-for-Seeeduino-XIAO-p-4621.html)
+- [Grove Beginner Kit for Arduino](https://www.seeedstudio.com/Grove-Beginner-Kit-for-Arduino-p-4549.html)

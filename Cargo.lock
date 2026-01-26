@@ -461,6 +461,7 @@ dependencies = [
  "esp-metadata-generated",
  "esp-sync",
  "log",
+ "portable-atomic",
 ]
 
 [[package]]
@@ -1149,6 +1150,7 @@ dependencies = [
  "esp-bootloader-esp-idf",
  "esp-hal",
  "esp-println",
+ "nb 1.1.0",
 ]
 
 [[package]]

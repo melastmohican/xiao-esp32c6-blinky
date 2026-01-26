@@ -1,5 +1,6 @@
 [target.riscv32imac-unknown-none-elf]
 runner = "espflash flash --monitor"
+#runner = "probe-rs run --chip esp32c6 --protocol jtag"
 
 
 [env]
