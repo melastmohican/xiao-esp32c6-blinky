@@ -155,35 +155,88 @@ cargo run --example grove_potentiometer
 
 Rotate the potentiometer to adjust the LED blink rate from 50ms to 1000ms per toggle. ADC values are printed to the serial console.
 
-### Grove Buzzer Example
+### Grove Light Sensor Example
 
-Demonstrates using a Grove Buzzer with PWM (analogWrite) to create beep patterns.
+Demonstrates using a Grove Light Sensor to control a Grove LED based on ambient light.
 
 **Hardware:**
-- Grove Buzzer connected to **A2** (GPIO2)
+- Grove Light Sensor connected to **A0** (GPIO0)
+- Grove LED connected to **D7** (GPIO17)
 
 **Run:**
 ```bash
-cargo run --example grove_buzzer
+cargo run --example grove_light_sensor
 ```
 
-The buzzer plays various patterns:
-- Three short beeps
-- Long beep
-- SOS pattern (··· --- ···)
-- Rapid beeps
+The LED turns ON when the sensor is covered (Dark) and OFF when exposed to light.
 
-Uses PWM at 2kHz with 50% duty cycle, matching Arduino's `analogWrite(pin, 128)`.
+### Grove Sound Sensor Example
+
+Demonstrates using a Grove Sound Sensor to detect loud noises (like clapping) and trigger a Grove LED.
+
+**Hardware:**
+- Grove Sound Sensor connected to **A0** (GPIO0)
+- Grove LED connected to **D7** (GPIO17)
+
+**Run:**
+```bash
+cargo run --example grove_sound_sensor
+```
+
+The sensor self-calibrates on startup. Clap or make noise to trigger the LED.
+
+### Grove OLED Display Example
+
+Demonstrates drawing text, shapes, and animations on a Grove OLED Display (SSD1306).
+
+**Hardware:**
+- Grove OLED Display connected to **I2C** connector
+- **SDA** (D4) -> GPIO22
+- **SCL** (D5) -> GPIO23
+
+**Run:**
+```bash
+cargo run --example grove_oled
+```
+
+### Grove Air Pressure Sensor (BMP280) Example
+
+Demonstrates reading temperature, pressure, and calculating altitude using a Grove BMP280 sensor.
+
+**Hardware:**
+- Grove BMP280 Sensor connected to **I2C** connector
+- **SDA** (D4) -> GPIO22
+- **SCL** (D5) -> GPIO23
+
+**Run:**
+```bash
+cargo run --example grove_air_pressure
+```
+
+### Grove Temperature & Humidity Sensor (AHT20) Example
+
+Demonstrates reading temperature and humidity from a Grove AHT20 sensor.
+
+**Hardware:**
+- Grove AHT20 Sensor connected to **I2C** connector
+- **SDA** (D4) -> GPIO22
+- **SCL** (D5) -> GPIO23
+
+**Run:**
+```bash
+cargo run --example grove_temp_humidity
+```
 
 ## Pin Mapping Reference
 
 | Grove Connector | XIAO ESP32-C6 Pin | Function |
 |-----------------|-------------------|----------|
-| A0 | GPIO0 | ADC1_CH0 |
+| A0 | GPIO0 | ADC1_CH0 / Analog In |
 | A1 | GPIO1 | ADC1_CH1 |
 | A2 | GPIO2 | ADC1_CH2 / PWM |
 | D1 | GPIO1 | Digital I/O |
 | D7 | GPIO17 | Digital I/O |
+| I2C (Internal) | GPIO22 (SDA), GPIO23 (SCL) | I2C Bus (D4/D5) |
 
 ## Hardware Links
 

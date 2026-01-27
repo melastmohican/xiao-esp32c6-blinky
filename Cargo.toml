@@ -16,6 +16,12 @@ esp-println = { version = "0.16.1", default-features = false, features = ["esp32
 esp-bootloader-esp-idf = { version = "0.4.0", features = ["esp32c6"] }
 nb = "1.1"
 
+[dev-dependencies]
+embedded-graphics = "0.8.1"
+ssd1306 = "0.10.0"
+libm = "0.2.11"
+bme280 = "0.5"
+
 [profile.dev]
 # Rust debug is too slow.
 # For debug builds always builds with some optimization
