@@ -227,16 +227,65 @@ Demonstrates reading temperature and humidity from a Grove AHT20 sensor.
 cargo run --example grove_temp_humidity
 ```
 
+### Grove 4-Digit Display (TM1637) Example
+
+Demonstrates using a Grove 4-Digit Display to show numbers and animations.
+
+**⚠️ Hardware Note:**
+This module requires **5V** to operate reliably. The Grove Base for XIAO only provides 3.3V. You must connect the module directly to the **5V pin** on the XIAO headers.
+
+**Wiring (Direct Headers):**
+- **VCC** (Red) -> 5V Pin
+- **GND** (Black) -> GND Pin
+- **CLK** (Yellow) -> **D2** (GPIO2)
+- **DIO** (White) -> **D1** (GPIO1)
+
+**Run:**
+```bash
+cargo run --example grove_4digit_display
+```
+
+### Grove RGB LED Stick (15-WS2813 Mini) Example
+
+Demonstrates colorful lighting effects using the `esp-hal-smartled` driver.
+
+**⚠️ Hardware Note:**
+15 RGB LEDs require significant power. You must connect the stick directly to the **5V pin** on the XIAO headers for stable operation.
+
+**Wiring (Direct Headers):**
+- **VCC** (Red) -> 5V Pin
+- **GND** (Black) -> GND Pin
+- **DIN** (Yellow) -> **D7** (GPIO17)
+
+**Run:**
+```bash
+cargo run --example grove_rgb_stick
+```
+
+### Grove 3-Axis Accelerometer (LIS3DHTR) Example
+
+Demonstrates reading X, Y, Z acceleration and detecting orientation/shakes.
+
+**Hardware:**
+- Grove LIS3DHTR Sensor connected to **I2C** connector
+- **SDA** (D4) -> GPIO22
+- **SCL** (D5) -> GPIO23
+
+**Run:**
+```bash
+cargo run --example grove_accelerometer
+```
+
 ## Pin Mapping Reference
 
-| Grove Connector | XIAO ESP32-C6 Pin | Function |
-|-----------------|-------------------|----------|
-| A0 | GPIO0 | ADC1_CH0 / Analog In |
-| A1 | GPIO1 | ADC1_CH1 |
-| A2 | GPIO2 | ADC1_CH2 / PWM |
-| D1 | GPIO1 | Digital I/O |
-| D7 | GPIO17 | Digital I/O |
-| I2C (Internal) | GPIO22 (SDA), GPIO23 (SCL) | I2C Bus (D4/D5) |
+| Connector / Pin | XIAO ESP32-C6 | Function |
+|-----------------|---------------|----------|
+| A0 | GPIO0 | Analog In / D0 |
+| A1 / D1 | GPIO1 | Analog In / Digital I/O |
+| A2 / D2 | GPIO2 | Analog In / Digital I/O (CLK for 4-Digit) |
+| D7 | GPIO17 | Digital I/O (Data for RGB Stick) |
+| I2C (Internal) | GPIO22, GPIO23 | SDA, SCL (D4/D5) |
+| **5V Pin** | Header | Use for 4-Digit Display & RGB Stick |
 
 ## Hardware Links
 

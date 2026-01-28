@@ -59,8 +59,7 @@ fn main() -> ! {
         esp_println::println!("Failed at 0x76: {:?}", e);
         esp_println::println!("Trying secondary address 0x77...");
 
-        // Dropping the old driver lets us re-borrow i2c
-        drop(bmp280);
+        // Re-assigning bmp280 lets us re-borrow i2c
         bmp280 = BME280::new_secondary(&mut i2c);
 
         if let Err(e) = bmp280.init(&mut delay) {

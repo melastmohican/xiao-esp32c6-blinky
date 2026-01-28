@@ -210,7 +210,7 @@ fn main() -> ! {
                     .draw(&mut display)
                     .unwrap();
 
-                let progress_width = ((frame % 100) as u32 * 104) / 100;
+                let progress_width = ((frame % 100) * 104) / 100;
                 Rectangle::new(Point::new(12, 47), Size::new(progress_width, 8))
                     .into_styled(PrimitiveStyle::with_fill(BinaryColor::On))
                     .draw(&mut display)

@@ -91,11 +91,7 @@ fn main() -> ! {
         };
 
         // Calculate absolute difference from baseline
-        let diff = if sound_value > baseline {
-            sound_value - baseline
-        } else {
-            baseline - sound_value
-        };
+        let diff = sound_value.abs_diff(baseline);
 
         sample_count += 1;
 
@@ -110,10 +106,8 @@ fn main() -> ! {
             delay.delay_millis(LED_ON_DURATION_MS);
             led.set_low();
             sample_count = 0;
-        } else {
-            if sample_count % 50 == 0 {
-                esp_println::println!("Silence... (Level: {} mV)", sound_value);
-            }
+        } else if sample_count.is_multiple_of(50) {
+            esp_println::println!("Silence... (Level: {} mV)", sound_value);
         }
 
         // Fast sampling

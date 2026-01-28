@@ -21,6 +21,9 @@ embedded-graphics = "0.8.1"
 ssd1306 = "0.10.0"
 libm = "0.2.11"
 bme280 = "0.5"
+tm1637-embedded-hal = "0.5.2"
+esp-hal-smartled = "0.17.0"
+smart-leds = "0.4.0"
 
 [profile.dev]
 # Rust debug is too slow.
