@@ -103,6 +103,8 @@ MAC address:       f0:f5:bd:2d:0c:88
 
 This project includes examples for Grove modules connected via the [Grove Base for XIAO](https://www.seeedstudio.com/Grove-Shield-for-Seeeduino-XIAO-p-4621.html).
 
+![Grove Base for XIAO](images/grove_base_xiao.jpg)
+
 ### Main Application
 
 The main application blinks the built-in LED on GPIO15.
